@@ -1,18 +1,2 @@
 <h2>Armar lista de estudiantes en Json! <button (click)="start()">Comenzar</button></h2>
-<div *ngIf="flag">
-    <ul *ngFor="let student of studentsList; let i = index">
-        <div [ngStyle]="{'display':'flex'}">
-            <li [ngClass]="{'red': clickedStudent === i}">{{student}}</li>
-            <button (click)="addStudent(i,student)">Agregar</button>
-        </div>
-    </ul>
-    <h2>Estudiantes agregados: <span
-            [ngClass]="{'red': addedStudents.length === studentsList.length}">{{addedStudents.length}}</span></h2>
-    <div *ngIf="addedStudents.length > 0">
-        {{addedStudents | json}}
-    </div>
-    <div class="alert" *ngIf="addedStudents.length === studentsList.length">
-        Ya agregaste todos los estudiantes!
-        <button (click)="reset()">Resetear</button>
-    </div>
-</div>
+<app-students-list [flag]="flag" [studentsList]="studentsList"></app-students-list>
